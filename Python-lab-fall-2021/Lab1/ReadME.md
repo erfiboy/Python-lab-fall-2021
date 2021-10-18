@@ -89,3 +89,81 @@ Remove the directory B with the flag -r:
 ### 3.3 ls
 ![This is an image](./etc-ls.png)
 
+#### usefull Flags
+To list all files in the current directory, type:
+> ls -a
+
+This displays a long listing with detailed information:
+> ls -l
+
+This displays a list all the files with detail:
+> ls -la
+
+This displays files that were modified most recently:
+> ls -x
+
+This displays lists all subdirectories recursively:
+> ls -R
+
+This displays size of all files:
+> ls -s
+
+### 3.4 tree
+<pre>
+-d     List directories only.
+-l     Descend only level directories deep.
+</pre>
+> $ tree -L 2 -d
+
+### 3.5 suffix
+change the suffics of the sqspell to jpg
+> $ mv sqspell.php sqspell.jpg
+> 
+![This is an image](./file.png)
+
+### 3.6 Zsh
+![This is an image](./zh.png)
+
+
+For installing the ‫‪syntax-highlighting‬‬ and ‫‪utocomplete‬‬ you can use [this link](https://linuxhint.com/install_zsh_shell_ubuntu_1804/).
+
+
+![This is an image](./syntax.png)
+
+
+## 4 ‫‪Linux‬‬ ‫‪Security‬‬ ‫‪and‬‬ ‫‪Permissions‬‬
+
+Create a user with that it's username is equal to student name:
+> $ sudo adduser --force-badname 97102558</br>
+> Adding user `97102558' ...</br>
+Adding new group `97102558' (1001) ...</br>
+Adding new user `97102558' (1001) with group `97102558' ...</br>
+Creating home directory `/home/97102558' ...</br>
+Copying files from `/etc/skel' ...</br>
+New password: </br>
+Retype new password: </br>
+passwd: password updated successfully</br>
+Changing the user information for 97102558</br>
+Enter the new value, or press ENTER for the default</br>
+	Full Name []: </br>
+	Room Number []: </br>
+	Work Phone []: </br>
+	Home Phone []: </br>
+	Other []: </br>
+
+Switch to user:
+> $ su 97102558
+
+Create a new user with 97102558:
+This instruction cause an error.
+> $ adduser ali </br>
+>adduser: Only root may add a user or group to the system.
+
+To correct this error we must add the current user to the sudo group:
+> $ sudo usermod -aG sudo 97102558
+
+To delete the user:
+> $ sudo deluser --remove-home 97102558
+
+
+## 5 ‫‪Regular‬‬ ‫‪Expressions‬‬

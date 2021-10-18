@@ -17,7 +17,8 @@
 ## 2. ‫‪System‬‬ ‫‪Configuration‬‬
 
 ## 3. ‫‪Command‬‬ ‫‪Line‬‬
-Installing fortune:
+
+### 3.1 installing, run and remove fortuneInstalling fortune:
 > $ sudo apt install fortune </br>
 
 Run the fortune:
@@ -59,3 +60,32 @@ See the installed packages
 See the specified package and make sure that it has been removed
 
 > $ apt list | grep fortune
+
+### 3.2 Directories
+Go to Home:
+> $ cd </br>
+
+Create A and B directories in Home:
+> $ mkdir A B
+
+Go to A with the absolute path:
+> $ cd ~/A
+
+Go to B with reletive path:
+> $ cd ../B 
+
+Create a file which is golab, in A directory
+> $ touch golabi
+
+Copy golabi to A directory:
+>$ cp golabi ../B
+
+Move golabi to Desktop:
+>$ mv golabi ~/Desktop/
+
+Remove the directory B with the flag -r:
+>$ rm -r ~/B
+
+### 3.3 ls
+![This is an image](./etc-ls.png)
+

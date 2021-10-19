@@ -16,6 +16,8 @@
 
 ## 2. ‫‪System‬‬ ‫‪Configuration‬‬
 
+![This is an image](./vpn.png)
+
 ## 3. ‫‪Command‬‬ ‫‪Line‬‬
 
 ### 3.1 installing, run and remove fortuneInstalling fortune:
@@ -167,3 +169,106 @@ To delete the user:
 
 
 ## 5 ‫‪Regular‬‬ ‫‪Expressions‬‬
+
+### 5.1 dpkg and grep
+To see install packages:
+> $ dpkg --list  
+
+to see only only packages including firefox in thier names:
+> $ dpkg --list  | grep firefox
+
+### 5.2 find 
+Find all files end with .py or .c
+> $ find . -type f -name " * .c" && find . -type f -name " * .py"  
+
+### 5.3 grep
+lines strarting with GNU:
+> $ grep ’ˆGNU’ ./GPL-1
+
+Find words containing cept 
+> $ grep "cept" GPL-1   
+
+To print all the phrases between phrantises
+> $ cat GPL-1 |  grep -Po '(?<=\().*(?=\))'
+
+## 6 Pipe & Redirection
+### 6.1 Top
+> $ top -o %MEM   
+
+result is sorted based on the memory used: 
+![This is an image](./top.png)
+
+### 6.2 Kill firefox
+Find the PID of the firefox and kill that program:
+> $ sudo kill $(ps aux | grep firefox | awk '{print $2}')  
+
+### 6.3 output and error stream
+Write output and standard error in out.txt:
+> $ cat /proc/devices >>out.txt 2>&1 
+
+append cpu info:
+> $ cat /proc/cpuinfo >>out.txt 2>&1
+
+### 6.4 ping and run command in background
+To run command in background use & at the end of the command:
+> $ ping ee.sharif.ir > log.text &
+
+To bring a background process to the foreground use command fg:
+> $ fg
+
+To see result of the command: 
+> $ cat log.txt
+
+To end terminate process kill the process 
+> $ kill 5374                 </br>
+[1]  + terminated  ping ee.sharif.ir > log.text
+
+### 6.5 tmux
+tmux is a terminal multiplexer and used for open multiple terminal windows in single window, which each of these terminals are running independently. 
+
+To create a new session: 
+> $ tmux new -s First-session
+
+to create new session or window:
+> $ ctrl + b + %
+
+to shift between 2 windows:
+> $ ctrl + b + ->/<-
+
+which ->/<- is the arrow
+
+Create a new window at the bottom:
+> $ ctrl + b + " 
+ 
+To exit a session write:
+> $ exit
+
+## 7 Text editor
+### 7.1 Vim
+To create a file with my student number name:
+> $ vim 97102558
+
+To set ‫‪Line‬‬ ‫‪Numbering‬‬ or ‫‪Smart‬‬ ‫Indentation ‬ press Esc then : and type:
+> : set autoindent </br>
+> : set number
+
+### 7.2 Reapting 5.3
+
+First we should open the specified file with the vim:
+> $ sudo vim GPL-1
+
+Then press Esc and then : and type this: 
+> $ /^[^#]*GNU
+
+The first ^ will anchor the match to the start of the line, [^#] will match any character except a # (the ^ means to match any character except those given), and the * repeats this 0 or more times. [refrence](https://vi.stackexchange.com/questions/3347/search-for-lines-starting-with-given-string-in-vim)
+
+This will find the lines starting with GNU.
+
+To search word contain "cept":
+Press Esc and then : and type this: 
+> /cept
+
+### 7.3 sort
+
+Select the lines that before "Genral Setup" and the press : and wirte: 
+> :'<,'>sort	

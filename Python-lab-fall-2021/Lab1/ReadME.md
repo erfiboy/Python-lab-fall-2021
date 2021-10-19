@@ -191,6 +191,10 @@ Find words containing cept
 To print all the phrases between phrantises
 > $ grep -oP '\(\K[^)]+'
 
+### 5.4 Remove commented lines:
+Use this command:
+> grep -v '^\#' sqspell.php
+  
 ## 6 Pipe & Redirection
 ### 6.1 Top
 > $ top -o %MEM   

@@ -179,17 +179,17 @@ to see only only packages including firefox in thier names:
 
 ### 5.2 find 
 Find all files end with .py or .c
-> $ find . -type f -name " * .c" && find . -type f -name " * .py"  
+> $ find . -type f -name " * .c"  -o " * .py"  
 
 ### 5.3 grep
 lines strarting with GNU:
 > $ grep ’ˆGNU’ ./GPL-1
 
 Find words containing cept 
-> $ grep "cept" GPL-1   
+> $ grep 'cept' GPL-1   
 
 To print all the phrases between phrantises
-> $ cat GPL-1 |  grep -Po '(?<=\().*(?=\))'
+> $ grep -oP '\(\K[^)]+'
 
 ## 6 Pipe & Redirection
 ### 6.1 Top
@@ -268,7 +268,20 @@ To search word contain "cept":
 Press Esc and then : and type this: 
 > /cept
 
+
+To find text between () use this:
+> /(. *)
+
 ### 7.3 sort
 
 Select the lines that before "Genral Setup" and the press : and wirte: 
 > :'<,'>sort	
+
+To save the text use :wq
+
+### 7.4 ‫‪Record‬‬ ‫‪and‬‬ ‫‪Play‬‬
+Use this [link](https://spin.atomicobject.com/2014/11/23/record-vim-macros/) to see how Macros work and with that we can Record and play same instructions on multiple files:
+
+‫‪:g/(normal‬‬ ‫(‪f(dvariable‬‬ ‫‬‬</br>
+‫‪:%s/GNU/SUT‬‬ </br>
+‫‪:%s/**19/**13‬‬

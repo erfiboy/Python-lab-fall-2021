@@ -18,7 +18,31 @@ class Set():
         return 
     
     def __eq__(self, other: object) -> bool:
-        for self_elemet in self:
+        if len(self.set) != len(other.set):
+            return False
+        
+        for self_elemet in self.set:
             if other.set.count(self_elemet) == 0:
                 return False
         return True
+    
+    def __and__(self, other: object):
+        meet_of_tow_set = []
+        
+        for element in self.set:
+            if other.set.count(element) != 0:
+                meet_of_tow_set.append(element)
+                
+        return meet_of_tow_set
+    
+    def __or__(self, other: object):
+        union = []
+        
+        for element in self.set:
+            union.append(element)
+            
+        for element in other.set:
+            if union.count(element) == 0:
+                union.append(element)
+                
+        return union
